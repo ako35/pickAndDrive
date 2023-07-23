@@ -1,8 +1,8 @@
 // admin components
-import AdminCarousel from './admin-carousel'
-import DashboardCard from './dashboard-card'
-import Sidebar from './sidebar'
-import TableRow from './table-row'
+import AdminCarousel from './admin/carousel/carousel'
+import DashboardCard from './admin/dashboard-card/dashboard-card'
+import Sidebar from './admin/sidebar/sidebar'
+import TableRow from './admin/table-row/table-row'
 
 // common components
 import OfferItem from './common/about/best-offers/offer-item/offer-item'
