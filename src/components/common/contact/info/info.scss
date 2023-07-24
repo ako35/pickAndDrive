@@ -1,0 +1,26 @@
+@use '../../../../styles/variables' as v;
+@use '../../../../styles/mixins' as m;
+
+.contact-info{
+    color: v.$color1;
+    @include m.reset-list;
+
+    .icons{
+        
+        &:hover{
+            color: v.$color2;
+        }
+
+        svg{
+            font-size: 1.2rem;
+        }
+    }
+
+    a{
+        color: v.$color1;
+
+        &:hover{
+            color: v.$color2;
+        }
+    }
+}

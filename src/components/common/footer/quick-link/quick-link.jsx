@@ -1,9 +1,16 @@
+import { Link } from "react-router-dom";
 
-
-const QuickLink = () => {
+const QuickLink = (props) => {
   return (
-    <div>QuickLink</div>
-  )
-}
+    <li className="quick-link">
+      <Link
+        to={props.direct}
+        className={props.pathname === props.direct ? "active" : ""}
+      >
+        {props.icon} {props.text}
+      </Link>
+    </li>
+  );
+};
 
-export default QuickLink
+export default QuickLink;

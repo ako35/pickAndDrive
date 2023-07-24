@@ -1,8 +1,8 @@
 
 
-const Spacer = () => {
+const Spacer = ({ height = 100 }) => {
   return (
-    <div>Spacer</div>
+    <div style={{ height: height }}></div>
   )
 }
 

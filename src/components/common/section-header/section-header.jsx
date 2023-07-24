@@ -1,8 +1,11 @@
+import './section-header.scss'
 
-
-const SectionHeader = () => {
+const SectionHeader = (props) => {
   return (
-    <div>SectionHeader</div>
+    <div className="section-header">
+      <h2>{props.title1} <span>{props.title2}</span></h2>
+      <p>{props.desc}</p>
+    </div>
   )
 }
 
