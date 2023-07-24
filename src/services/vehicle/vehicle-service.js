@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API_URL = import.meta.env.VITE_APP_API_URL;
-
+// process.env.VITE_APP_API_URL; normal react da bu sekilde oluyor
 
 // COMMON ENDPOINTS
 export const getVehicleById = () => { };

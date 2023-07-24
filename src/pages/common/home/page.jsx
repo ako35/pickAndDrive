@@ -1,8 +1,18 @@
-
+import { Spacer, Slider, PopularVehicles, BestOffers, Team, WhatWeDo } from '../../../components'
 
 const HomePage = () => {
   return (
-    <div>HomePage</div>
+    <>
+      <Slider />
+      <Spacer />
+      <PopularVehicles />
+      <Spacer />
+      <BestOffers />
+      <Spacer />
+      <Team />
+      <Spacer />
+      <WhatWeDo />
+    </>
   )
 }
 

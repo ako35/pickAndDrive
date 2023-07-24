@@ -3,6 +3,7 @@ import {OfferItem, SectionHeader} from "../../../"
 import { constants } from "../../../../constants"
 import { MdFamilyRestroom, MdOutlineWorkspacePremium } from "react-icons/md"
 import { GiEcology, GiCarWheel, GiModernCity, GiCircleForest,  } from "react-icons/gi"
+import './best-offers.scss'
 
 const { offers } = constants
 
