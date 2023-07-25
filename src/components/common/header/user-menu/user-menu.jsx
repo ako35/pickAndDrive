@@ -1,9 +1,11 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import './user-menu.scss'
 import { Button, Dropdown } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { constants } from "../../../../constants"
 import { Link } from "react-router-dom"
+import { utils } from "../../../../utils"
+import { logout } from "../../../../store"
 
 const {
   routes: {
@@ -14,9 +16,16 @@ const {
 const UserMenu = () => {
   const { isLoggedIn, user } = useSelector(state => state.auth)
   const navigate = useNavigate()
+  const dispatach = useDispatch()
 
   const handleLogout = () => {
-    
+    utils.functions
+      .swalQuestion('Logout', 'Are you sure you want to logout?')
+      .then(response => {
+        if (response.isConfirmed) {
+          dispatach(logout())
+        }
+      })
   }
   return (
     <div className="user-menu">
@@ -34,7 +43,7 @@ const UserMenu = () => {
                       <Dropdown.Item as={Link} to={adminDashboard}>
                         Admin Panel
                       </Dropdown.Item>
-
+                      <Dropdown.Divider />
                     </>
                   )
                 }
