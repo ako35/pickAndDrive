@@ -1,5 +1,14 @@
 import Swal from "sweetalert2"
 
+// form check functions
+export const validCheck = (field, obj) => {
+    const myObject = {
+        isValid: obj.touched[field] && !obj.errors[field],
+        isInvalid: obj.touched[field] && obj.errors[field],
+    }
+
+    return myObject
+}
 
 // sweet alert functions
 export const swalQuestion = (title, text) => {
@@ -12,7 +21,7 @@ export const swalQuestion = (title, text) => {
 }
 
 export const swalToast = (title, icon='info', timer=5000) => {
-    return Swal.fire({
+    Swal.fire({
         title,
         icon,
         timer,
