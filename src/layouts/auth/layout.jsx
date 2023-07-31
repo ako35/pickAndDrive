@@ -11,9 +11,8 @@ const AuthLayout = () => {
   const { user } = useSelector(state => state.auth);
   const navigate = useNavigate();
 
-  if (Object.keys(user).length > 0) {
-    return <Navigate to={routes.home} />;
-  }
+  if (Object.keys(user).length > 0) return <Navigate to={routes.home} />;
+
   return (
     <Container fluid className="auth-layout">
       <Row>

@@ -1,9 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AppRouter from "./router";
 import { LoadingPage } from "./pages";
+import { services } from "./services";
+import { useDispatch } from "react-redux";
+import { loginFailure, loginSuccess } from "./store";
 
 const App = () => {
   const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
+
+  const loadData = async () => {
+    try {
+      const token = services.encryptedLocalStorage.getItem("pickanddrivetoken");
+
+      if (token) {
+        const userData = await services.user.getUser();
+        dispatch(loginSuccess(userData));
+      }
+    } catch (error) {
+      dispatch(loginFailure());
+    } finally {
+      setLoading(false);
+    }
+  }
+  useEffect(() => {
+    loadData();
+  }, []);
   return (
     <>
       {

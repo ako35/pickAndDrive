@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { loginFailure, loginSuccess } from "../../../store";
 import { useDispatch } from "react-redux";
@@ -7,6 +7,10 @@ import { services } from "../../../services";
 import { utils } from "../../../utils";
 import { useFormik } from "formik";
 import { CustomForm, PasswordInput } from "../../../components";
+import { constants } from "../../../constants";
+import './style.scss'
+
+const { routes } = constants;
 
 const LoginPage = () => {
   const [loading, setLoading] = useState(false);
@@ -37,7 +41,7 @@ const LoginPage = () => {
     onSubmit,
   });
   return (
-    <Form noValidate onSubmit={formik.handleSubmit}>
+    <Form noValidate onSubmit={formik.handleSubmit} className="login-form">
       <CustomForm
         formik={formik}
         name="email"
@@ -51,9 +55,20 @@ const LoginPage = () => {
         label="Password"
         placeholder="Enter password"
       />
-      <Button>LOGIN</Button>
+      <Button
+        type="submit"
+        disabled={!(formik.dirty && formik.isValid) || loading}
+      >
+        {loading && (
+          <Spinner
+            animation="border"
+            size="sm"
+          />
+        )}{" "}
+        LOGIN
+      </Button>
       <p>OR</p>
-      <Button>REGISTER</Button>
+      <Button onClick={() => navigate(routes.register)} disabled={loading}>REGISTER</Button>
     </Form>
   );
 };
