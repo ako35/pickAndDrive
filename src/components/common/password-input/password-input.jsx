@@ -9,7 +9,7 @@ const PasswordInput = (props) => {
   const togglePassword = () => {
     const newType = type === "password" ? "text" : "password";
     setType(newType);
-  }
+  };
 
   const properties = {
     type,
@@ -17,20 +17,21 @@ const PasswordInput = (props) => {
     placeholder: props.placeholder,
     ...props.formik.getFieldProps(props.name),
     ...utils.functions.validCheck(props.name, props.formik),
-  }
+  };
   return (
-    <Form.Group className="mb-3" title={type === "password" ? "Hide password" : "Show password"}>
+    <Form.Group
+      className="mb-3"
+      title={type === "password" ? "Show password" : "Hide password"}
+    >
       <Form.Label>{props.label}</Form.Label>
       <InputGroup>
         <Form.Control {...properties} />
         <InputGroup.Text onclick={togglePassword} style={{ cursor: "pointer" }}>
-          {
-            type === "password" ? (
-              <MdOutlineVisibility />
-            ) : (
-              <MdOutlineVisibilityOff />
-            )
-          }
+          {type === "password" ? (
+            <MdOutlineVisibility />
+          ) : (
+            <MdOutlineVisibilityOff />
+          )}
         </InputGroup.Text>
         <Form.Control.Feedback type="invalid">
           {props.formik.errors[props.name]}

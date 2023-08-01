@@ -9,7 +9,7 @@ import { logout } from "../../../../store"
 
 const {
   routes: {
-    login, register, userProfile, userReservations, home, adminDashboard
+    login, register, userProfile, userReservations, adminDashboard
   },
 } = constants
 
@@ -30,7 +30,7 @@ const UserMenu = () => {
   return (
     <div className="user-menu">
       {
-        !isLoggedIn
+        isLoggedIn
         ? (
           <Dropdown align="end">
               <Dropdown.Toggle>
@@ -49,7 +49,7 @@ const UserMenu = () => {
                 }
                 <Dropdown.Item as={Link} to={userProfile}>Profile</Dropdown.Item>
                 <Dropdown.Item as={Link} to={userReservations}>Reservations</Dropdown.Item>
-                <Dropdown.Item as={Link} to={home} onClick={handleLogout}>Logout</Dropdown.Item>                
+                <Dropdown.Item as={Link} onClick={handleLogout}>Logout</Dropdown.Item>                
               </Dropdown.Menu>
             </Dropdown>
         )

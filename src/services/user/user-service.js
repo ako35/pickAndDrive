@@ -18,8 +18,14 @@ export const getUser = async () => {
     const response = await axios.get(`${API_URL}/user`, services.authHeader());
     return response.data;
 };
-export const updatePassword = () => { };
-export const updateUser = () => { };
+export const updatePassword = async (dto) => { 
+    const response = await axios.patch(`${API_URL}/user/auth`, dto, services.authHeader());
+    return response.data;
+};
+export const updateUser = async (userInfo) => { 
+    const response = await axios.put(`${API_URL}/user`, userInfo, services.authHeader());
+    return response.data;
+};
 
 // ADMIN ENDPOINTS
 export const deleteUser = () => { };

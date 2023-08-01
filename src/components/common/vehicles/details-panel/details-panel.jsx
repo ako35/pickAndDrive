@@ -78,7 +78,7 @@ const DetailsPanel = () => {
       </div>
       <Card>
         <img
-          src={`${API_URL}/files/display/${vehicle?.image}}`}
+          src={`${API_URL}/files/display/${vehicle?.image}`}
           alt={vehicle?.model}
           title={vehicle?.model}
           loading="lazy"

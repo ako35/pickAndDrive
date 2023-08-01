@@ -5,7 +5,7 @@ $breakpointsm: 400px;
 
 .details-panel{
     
-    .panel-tittle{
+    .panel-title{
         @include m.flexbox(row, space-between, center);
     }
 
@@ -15,7 +15,7 @@ $breakpointsm: 400px;
         text-align: center;
         margin-top: 2rem;
 
-        [class^="col-"]{
+        [class^="col"]{
             border-radius: 5px;
             padding: 1rem;
             @include m.flexbox(row, flex-start, center, 5px);

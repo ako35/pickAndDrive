@@ -102,9 +102,34 @@ const BookingForm = () => {
 
   const onSubmit = async (values) => {
     setLoading(true);
+
+    const {
+      pickUpDate,
+      pickUpTime,
+      dropOffDate,
+      dropOffTime,
+      pickUpLocation,
+      dropOffLocation,
+    } = values;
+
+    const dto = {
+      carId: vehicle.id,
+      pickUpDateTime: utils.functions.combineDateAndTime(
+        pickUpDate,
+        pickUpTime
+      ),
+      dropOffDateTime: utils.functions.combineDateAndTime(
+        dropOffDate,
+        dropOffTime
+      ),
+      pickUpLocation,
+      dropOffLocation,
+    };
+
     try {
-      await services.contact.sendMessage(values);
-      utils.functions.swalToast("Message sent successfully!", "success");
+      await services.reservation.createReservation(vehicle.id, dto);
+      utils.functions.swalToast("Reservation created successfully!", "success");
+      navigate(routes.userReservations);
     } catch (error) {
       utils.functions.swalToast(
         "There is an error occurred during rent operation!",
@@ -116,9 +141,39 @@ const BookingForm = () => {
   };
 
   const handleAvailability = async () => {
+    if (!isLoggedIn || !formik.dirty) return;
     setLoading(true);
+    const { pickUpDate, pickUpTime, dropOffDate, dropOffTime } = formik.values;
+    const dto = {
+      carId: vehicle.id,
+      pickUpDateTime: utils.functions.combineDateAndTime(
+        pickUpDate,
+        pickUpTime
+      ),
+      dropOffDateTime: utils.functions.combineDateAndTime(
+        dropOffDate,
+        dropOffTime
+      ),
+    };
     try {
+      if (!utils.functions.checkDates(formik.values)) 
+      return utils.functions.swalToast(
+          "Pick up date must be minimum 1 hour before drop off date!",
+          "error"
+        );
+      
+      const data = await services.reservation.isVehicleAvailable(dto);
+      const { available, totalPrice } = data;
+      setTotalPrice(totalPrice);
+      setVehicleAvailable(available);
+      if(!available) {
+        utils.functions.swalToast("Vehicle is not available for the selected dates!", "error");
+      }
     } catch (error) {
+      utils.functions.swalToast(
+        "There is an error occurred during rent operation!",
+        "error"
+      );
     } finally {
       setLoading(false);
     }

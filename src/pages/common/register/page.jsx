@@ -78,8 +78,8 @@ const RegisterPage = () => {
   };
 
   const formik = useFormik({
-    initialValues: utils.initialValues.loginFormInitialValues,
-    validationSchema: utils.validations.loginFormValidationSchema,
+    initialValues: utils.initialValues.registerFormInitialValues,
+    validationSchema: utils.validations.registerFormValidationSchema,
     onSubmit,
   });
   return (
