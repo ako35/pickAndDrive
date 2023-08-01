@@ -23,8 +23,10 @@ const LoginPage = () => {
     try {
       const data = await services.user.login(values);
       services.encryptedLocalStorage.setItem("pickanddrivetoken", data.token);
+
       const responseUser = await services.user.getUser();
       dispatch(loginSuccess(responseUser));
+      
       utils.functions.swalToast("You have successfully logged in", "success");
       navigate(routes.home);
     } catch (error) {
