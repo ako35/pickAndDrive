@@ -11,7 +11,15 @@ export const createReservation = async (carId, dto) => {
     return response.data
 };
 export const getReservationById = () => {};
-export const getReservationsByPage = () => {};
+
+export const getReservationsByPage = async (page=0, size=20, sort='pickUpTime', direction='DESC') => {
+    const response = await axios.get(
+        `${API_URL}/reservations/auth/all?page=${page}&size=${size}&sort=${sort}&direction=${direction}`,
+        services.authHeader()
+    )
+    return response.data
+};
+
 export const isVehicleAvailable = async (payload) => {
   const { carId, pickUpDateTime, dropOffDateTime } = payload;
   const response = await axios.get(
