@@ -15,7 +15,7 @@ export const adminUserColumns = [
     },
     {
         name: "Roles",
-        selector: (row) => row?.roles?.join("—"),
+        selector: (row) => row?.roles?.join(" — "),
     },
 ];
 
