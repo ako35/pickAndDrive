@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { services } from "../../../services";
 import { Loading } from "../../../components";
 import { useNavigate } from "react-router-dom";
+import "./style.scss";
 
 const { routes } = constants;
 
@@ -35,8 +36,20 @@ const AdminUsersPage = () => {
     setDownloading(true);
     try {
       const download = await services.user.downloadUserReports();
+
+      const url = window.URL.createObjectURL(download);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "users.xlsx";
+      document.body.appendChild(link);
+      link.click();
+      utils.functions.swalToast("Your download will start soon", "success");
+      link.remove();
     } catch (error) {
-      console.log(error);
+      utils.functions.swalToast(
+        "There was an error while downloading",
+        "error"
+      );
     } finally {
       setDownloading(false);
     }
@@ -48,17 +61,20 @@ const AdminUsersPage = () => {
       setUserData(data.content);
       setPerPage(newPerPage);
     } catch (error) {
-      utils.functions.swalToast("There was an error while changing the page", "error");
-    } 
-  }
+      utils.functions.swalToast(
+        "There was an error while changing the page",
+        "error"
+      );
+    }
+  };
 
   const handlePageChange = (page) => {
     loadData(page - 1);
-  }
+  };
 
   const handleRowClicked = (row) => {
     navigate(`${routes.adminUsers}/${row.id}`);
-  }
+  };
 
   useEffect(() => {
     loadData(0);

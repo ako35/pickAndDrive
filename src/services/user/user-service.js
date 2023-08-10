@@ -36,13 +36,27 @@ export const updateUser = async (userInfo) => {
 };
 
 // ADMIN ENDPOINTS
-export const deleteUser = () => {};
-export const downloadUserReports = async () => {
-  const response = await axios.get(
-    `${API_URL}/excel/download/user`,
-  )
+export const deleteUser = async (id) => {
+  const response = await axios.delete(`${API_URL}/user/${id}/auth`, services.authHeader());
+  return response.data;
 };
-export const getUserAdmin = () => {};
+export const downloadUserReports = async () => {
+  const token = services.encryptedLocalStorage.getItem("pickanddrivetoken");
+  const response = await axios.get(`${API_URL}/excel/download/users`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    responseType: "blob",
+  });
+  return response.data;
+};
+export const getUserAdmin = async (id) => {
+  const response = await axios.get(
+    `${API_URL}/user/${id}/auth`,
+    services.authHeader()
+  );
+  return response.data;
+};
 export const getUsersByPage = async (
   page = 0,
   size = 20,
@@ -55,4 +69,11 @@ export const getUsersByPage = async (
   );
   return response.data;
 };
-export const updateUserAdmin = () => {};
+export const updateUserAdmin = async (id, payload) => {
+  const response = await axios.put(
+    `${API_URL}/user/${id}/auth`,
+    payload,
+    services.authHeader()
+  );
+  return response.data;
+};
