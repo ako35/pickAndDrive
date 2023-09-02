@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { services } from "../../../services";
 import { utils } from "../../../utils";
@@ -81,10 +81,10 @@ const AdminReservationsPage = () => {
     navigate(`${routes.adminReservations}/${row.id}`);
   };
 
-  useEffect(() => {
-    loadData(0);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   loadData(0);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   return (
     <div className="admin-reservations-page">

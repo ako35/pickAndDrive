@@ -1,8 +1,11 @@
+import './table-row.scss'
 
-
-const TableRow = () => {
+const TableRow = (props) => {
   return (
-    <div>TableRow</div>
+    <tr className='table-row__content'>
+      <td>{props.title} <span>:</span></td>
+      <td>{props.content}</td>
+    </tr>
   )
 }
 
