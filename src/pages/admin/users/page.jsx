@@ -60,6 +60,7 @@ const AdminUsersPage = () => {
       const data = await services.user.getUsersByPage(page - 1, newPerPage);
       setUserData(data.content);
       setPerPage(newPerPage);
+      setTotalRows(data.totalElements);
     } catch (error) {
       utils.functions.swalToast(
         "There was an error while changing the page",
