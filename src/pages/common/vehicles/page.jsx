@@ -1,6 +1,5 @@
 import { PageHeader, Spacer, Vehicles } from "../../../components"
 
-
 const VehiclesPage = () => {
   return (
     <>

@@ -13,7 +13,7 @@ const Slider = () => {
       navigation={true}
       modules={[EffectFade, Pagination, Navigation, Autoplay]}
       autoplay={{
-        delay: 3000,
+        delay: 5000,
         disableOnInteraction: false,
       }}
       className="slider"

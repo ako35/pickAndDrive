@@ -174,17 +174,11 @@ const router = createBrowserRouter([
     element: <ErrorPage />,
   },
   {
-    path: "*", // hicbir seye uymuyorsa demek * ifadesi
+    path: "*", // * ifadesi hicbir seye uymuyorsa demek 
     element: <ErrorPage />,
   },
 ]);
 
-// export default function AppRouter() {
-//   return <RouterProvider router={router} />;
-// }
-
-const AppRouter = () => (
-  <RouterProvider router={router} />
-)
+const AppRouter = () => <RouterProvider router={router} />;
 
 export default AppRouter;

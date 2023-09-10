@@ -6,7 +6,6 @@ import Loading from "../loading/loading";
 import VehicleCard from "./vehicle-card/vehicle-card";
 import CustomPagination from "../custom-pagination/custom-pagination";
 
-
 const Vehicles = () => {
   const [loading, setLoading] = useState(true);
   const [vehicles, setVehicles] = useState([]);

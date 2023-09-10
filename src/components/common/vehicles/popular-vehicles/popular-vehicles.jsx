@@ -36,7 +36,7 @@ const PopularVehicles = () => {
         <Row className="gy-5">
           {
             loading ? <Loading /> : vehicles && vehicles.map((item, index) => (
-              <Col md={6} lg={4} key={item.id || index}>
+              <Col md={6} lg={4} key={item?.id || index}>
                 <VehicleCard {...item} />
               </Col>
             ))

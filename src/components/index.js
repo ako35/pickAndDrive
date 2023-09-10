@@ -4,6 +4,7 @@ import DashboardCard from './admin/dashboard-card/dashboard-card'
 import Sidebar from './admin/sidebar/sidebar'
 import TableRow from './admin/table-row/table-row'
 
+
 // common components
 import OfferItem from './common/about/best-offers/offer-item/offer-item'
 import BestOffers from './common/about/best-offers/best-offers'
@@ -82,5 +83,4 @@ export{
     PopularVehicles,
     VehicleCard,
     Vehicles
-
 }

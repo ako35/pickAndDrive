@@ -5,7 +5,7 @@ $breakpoint: 992px;
 $breakpointsm: 450px;
 
 .user-menu{
-    @include m.flexbox($gap: 00.5rem);
+    @include m.flexbox($gap: 0.5rem);
 
     .dropdown{
         @media (max-width: $breakpoint) {

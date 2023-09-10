@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { constants } from "../../../../constants";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Form, Link, useNavigate, useParams } from "react-router-dom";
 import { useFormik } from "formik";
 import { utils } from "../../../../utils";
 import { services } from "../../../../services";
@@ -208,14 +208,14 @@ const AdminReservationDetailsPage = () => {
             </Button>
           </div>
           <ButtonGroup>
-            <Button disabled={deleting || saving} onClick={handleDelete}>
+            <Button disabled={deleting || updating} onClick={handleDelete}>
               {deleting && <Spinner animation="border" size="sm" />} Delete
             </Button>
             <Button
               type="submit"
-              disabled={!(formik.isValid && formik.dirty) || saving}
+              disabled={!(formik.isValid && formik.dirty) || updating}
             >
-              {saving && <Spinner animation="border" size="sm" />} Save
+              {updating && <Spinner animation="border" size="sm" />} Save
             </Button>
             <Button onClick={() => navigate(`${routes.adminReservations}`)}>
               Cancel

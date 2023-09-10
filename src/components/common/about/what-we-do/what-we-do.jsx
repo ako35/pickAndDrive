@@ -5,7 +5,7 @@ import { GiCarKey, GiJeep, GiRecycle, GiTimeSynchronization } from 'react-icons/
 import { TbBuildingSkyscraper } from 'react-icons/tb'
 import { RiVipDiamondLine } from 'react-icons/ri'
 
-const { whatWeDo: { desc, services, title },} = constants
+const { whatWeDo: { desc, services, title }} = constants
 
 const serviceIcons = [
   <GiCarKey key={0} />,
