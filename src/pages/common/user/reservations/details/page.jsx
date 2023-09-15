@@ -12,12 +12,12 @@ const UserReservationDetailsPage = () => {
 
   const loadData = async () => {
     try {
-      const data = await services.reservation.getReservationById(reservationId);
-      setReservation(data)
+        const data = await services.reservation.getReservationById(reservationId);
+        setReservation(data)
     } catch (error) {
-      console.log(error)
+        console.log(error)
     } finally {
-      setLoading(false)
+        setLoading(false)
     }
   }
 

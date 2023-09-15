@@ -1,13 +1,17 @@
-import { services } from ".."
+import { services } from "../";
 
 export const authHeader = () => {
     const token = services.encryptedLocalStorage.getItem("pickanddrivetoken");
 
-    let header = {}
-    if(token){
-        header = {
-            "Authorization": `Bearer ${token}`
+    let headers = {};
+
+    if (token) {
+        headers = {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
         }
     }
-    return header
+
+    return headers;
 }

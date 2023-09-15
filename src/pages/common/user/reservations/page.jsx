@@ -6,7 +6,6 @@ import {
   UserReservationsTable,
 } from "../../../../components";
 import { useEffect, useState } from "react";
-import { utils } from "../../../../utils";
 import { services } from "../../../../services";
 
 const UserReservationsPage = () => {

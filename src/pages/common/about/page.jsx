@@ -1,6 +1,5 @@
 import { BestOffers, PageHeader, Spacer, Team, WhatWeDo, WhoWeAre } from "../../../components"
 
-
 const AboutPage = () => {
   return (
     <>

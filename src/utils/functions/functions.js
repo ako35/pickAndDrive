@@ -1,7 +1,7 @@
 import Swal from "sweetalert2"
 import moment from "moment/moment"
 
-// form check functions
+// FORM CHECK FUNCTION
 export const validCheck = (field, obj) => {
     const myObject = {
         isValid: obj.touched[field] && !obj.errors[field],
@@ -11,11 +11,11 @@ export const validCheck = (field, obj) => {
     return myObject
 }
 
-// sweet alert functions
+// SWEET ALERT FUNCTION
 export const swalQuestion = (title, text) => {
     return Swal.fire({
-        title,
-        text,
+        title: title,
+        text: text,
         icon: 'question',
         showCancelButton: true
     })
@@ -23,9 +23,9 @@ export const swalQuestion = (title, text) => {
 
 export const swalToast = (title, icon='info', timer=5000) => {
     Swal.fire({
-        title,
-        icon,
-        timer,
+        title: title,
+        icon: icon,
+        timer: timer,
         showConfirmButton: true
     })
 }

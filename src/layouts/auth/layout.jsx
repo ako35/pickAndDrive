@@ -1,9 +1,10 @@
 import { Col, Container, Row } from "react-bootstrap"
-import { Link, Navigate, Outlet, useNavigate } from "react-router-dom"
+import { Link, Navigate, Outlet, useLocation, useNavigate } from "react-router-dom"
 import { constants } from "../../constants"
 import { GiCancel, GiHomeGarage } from "react-icons/gi"
 import { useSelector } from "react-redux";
 import './style.scss'
+import { useEffect } from "react";
 
 const { routes, website } = constants;
 
@@ -11,7 +12,14 @@ const AuthLayout = () => {
   const { user } = useSelector(state => state.auth);
   const navigate = useNavigate();
 
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   if (Object.keys(user).length > 0) return <Navigate to={routes.home} />;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
 
   return (
     <Container fluid className="auth-layout">

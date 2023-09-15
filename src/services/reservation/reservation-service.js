@@ -12,7 +12,10 @@ export const createReservation = async (carId, dto) => {
   );
   return response.data;
 };
-export const getReservationById = () => {};
+export const getReservationById = async (id) => {
+  const response = await axios.get(`${API_URL}/reservations/${id}/auth`, services.authHeader());
+  return response.data;
+};
 
 export const getReservationsByPage = async (
   page = 0,

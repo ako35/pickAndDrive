@@ -17,8 +17,6 @@
 
     .logo{
         @include m.flexbox(row, center, center);
-        border-radius: 0 0 0 5px;
-        height: 100%;
 
         img{
             height: 90px;
