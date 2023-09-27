@@ -10,7 +10,7 @@ const ContactMap = () => {
         title={website.name}
         src={website.mapEmbedUrl}
         width="100%"
-        height="100%"
+        height="500"
         style={{ border: 0 }}
         allowFullScreen=''
         loading="lazy"

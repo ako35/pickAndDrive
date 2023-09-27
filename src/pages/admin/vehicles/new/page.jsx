@@ -174,7 +174,7 @@ const AdminNewVehiclePage = () => {
               Cancel
             </Button>
             <Button type="submit" disabled={!formik.isValid || loading}>
-              {loading && <Spinner animation="border" size="sm" />} Create
+              {loading && <Spinner animation="border" size="sm" />}{" "} Create
             </Button>
           </ButtonGroup>
         </div>

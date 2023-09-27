@@ -54,8 +54,8 @@ const Sidebar = () => {
   const handleLogout = () => {
     utils.functions
       .swalQuestion("Logout", "Are you sure you want to logout?")
-      .then((response) => {
-        if (response.isConfirmed) {
+      .then((result) => {
+        if (result.isConfirmed) {
           dispatch(logout());
           services.encryptedLocalStorage.removeItem("pickanddrivetoken");
         }

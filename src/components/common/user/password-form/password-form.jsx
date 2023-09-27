@@ -58,7 +58,7 @@ const UserPasswordForm = () => {
         })}
         <Button
           type="submit"
-          disabled={!(formik.dirty && formik.isValid) || loading}
+          disabled={!(formik.isValid && formik.dirty) || loading}
           className="text-uppercase w-100 mt-3"
         >
           Update Password

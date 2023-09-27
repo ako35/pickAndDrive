@@ -284,14 +284,14 @@ const AdminVehicleDetailsPage = () => {
                     updating
                   }
                 >
-                  {updating && <Spinner animation="border" size="sm" />} Update
+                  {updating && <Spinner animation="border" size="sm" />}{" "} Update
                 </Button>
                 <Button
                   variant="danger"
                   disabled={deleting}
                   onClick={handleDelete}
                 >
-                  {deleting && <Spinner animation="border" size="sm" />} Delete
+                  {deleting && <Spinner animation="border" size="sm" />}{" "} Delete
                 </Button>
               </>
             )}

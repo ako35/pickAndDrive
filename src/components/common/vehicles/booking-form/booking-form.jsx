@@ -113,17 +113,16 @@ const BookingForm = () => {
     } = values;
 
     const dto = {
-      carId: vehicle.id,
-      pickUpDateTime: utils.functions.combineDateAndTime(
+      pickUpTime: utils.functions.combineDateAndTime(
         pickUpDate,
         pickUpTime
       ),
-      dropOffDateTime: utils.functions.combineDateAndTime(
+      dropOffTime: utils.functions.combineDateAndTime(
         dropOffDate,
         dropOffTime
       ),
-      pickUpLocation,
-      dropOffLocation,
+      pickUpLocation: pickUpLocation,
+      dropOffLocation: dropOffLocation,
     };
 
     try {

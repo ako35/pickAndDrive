@@ -95,7 +95,7 @@ const AdminVehiclesPage = () => {
       </ButtonGroup>
       <div className="admin-reservations-table-container">
         <DataTable
-          title="Reservations"
+          title="Vehicles"
           columns={utils.tables.adminReservationsColumns}
           data={vehicles}
           progressPending={loading}
@@ -108,6 +108,7 @@ const AdminVehiclesPage = () => {
           pagination
           paginationServer
           highlightOnHover
+          responsive
         />
       </div>
     </div>
